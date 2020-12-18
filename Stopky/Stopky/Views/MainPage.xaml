@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Stopky.Models;assembly=Stopky"
+             x:Class="Stopky.MainPage">
+
+    <ContentPage.BindingContext>
+
+        <models:MainModel/>
+
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label
+            Grid.Row="1"
+            Text="{Binding Seconds}"
+            HorizontalOptions="Center"
+            FontSize="45"
+            />
+
+        <Button
+            Grid.Row="2"
+            Text="{Binding CurrentMode}"
+            HorizontalOptions="Center"
+            Command="{Binding StartCommand}"
+            />
+
+        <Button
+            Grid.Row="3"
+            Text="Reset"
+            HorizontalOptions="Center"
+            Command="{Binding RestartCommand}"
+            />
+
+        <Button
+            Grid.Row="4"
+            Text="Lap"
+            HorizontalOptions="Center"
+            Command="{Binding LapCommand}"
+            />
+
+        <ListView
+            Grid.Row="5"
+            ItemsSource="{Binding Laps}"
+            />
+
+    </Grid>
+
+</ContentPage>
